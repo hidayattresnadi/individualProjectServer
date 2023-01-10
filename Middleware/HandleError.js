@@ -18,6 +18,22 @@ function errorHandler(err, req, res, next) {
             })
             msg = validateerr
             break;
+            case 'Unauthorized':
+            status = 401
+            msg = 'You have to login first'
+            break;
+        case 'JsonWebTokenError':
+            status = 401
+            msg = 'You have to login first'
+            break;
+        case 'invalidCredentials':
+            status = 401
+            msg = 'error invalid username or email or password'
+            break;
+        case 'Please fill requirement data':
+            status = 401
+            msg = 'error invalid username or email or password'
+            break;
         default:
             break;
     }
