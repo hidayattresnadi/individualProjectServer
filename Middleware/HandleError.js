@@ -18,7 +18,11 @@ function errorHandler(err, req, res, next) {
             })
             msg = validateerr
             break;
-            case 'Unauthorized':
+        case '"already subscribed"':
+            status = 400
+            msg = 'You are a subscriber'
+            break;
+        case 'Unauthorized':
             status = 401
             msg = 'You have to login first'
             break;

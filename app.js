@@ -1,3 +1,7 @@
+if(process.env.Node_ENV !== "production"){
+    require('dotenv').config()
+}
+
 const express = require('express')
 const cors = require('cors')
 const {errorHandler} = require('./Middleware/HandleError')
