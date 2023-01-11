@@ -44,6 +44,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         notEmpty:'Email is required'
       }
+    },
+    isSubscribed:{
+      type:DataTypes.BOOLEAN
     }
   }, {
     sequelize,
@@ -51,6 +54,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   User.beforeCreate((user)=>{
     user.password=hashPassword(user.password)
+    user.isSubscribed=false
   })
   return User;
 };
