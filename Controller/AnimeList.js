@@ -35,5 +35,19 @@ class Characters {
             })
             .catch((error) => console.log(error))
     }
+    static showVideos(req,res){
+        axios({
+            method: 'GET',
+            url: `https://youtube-v31.p.rapidapi.com/search?q=anime&part=snippet,id&regionCode=US&maxResults=5&order=date`,
+            headers:{
+                "X-RapidAPI-Key":process.env.X_RAPID_APIKey,
+                "X-RapidAPI-Host":"youtube-v31.p.rapidapi.com"
+            }
+        })
+            .then(({ data }) => {
+                res.status(200).json(data.items)
+            })
+            .catch((error) => console.log(error))
+    }
 }
 module.exports = Characters

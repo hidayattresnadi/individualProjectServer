@@ -81,6 +81,7 @@ class UserController {
             console.log("berhasil")
             res.status(200).json({ message: `User with id ${userId} now is a subscriber` })
         } catch (error) {
+            console.log(error)
             next(error)
         }
     }
